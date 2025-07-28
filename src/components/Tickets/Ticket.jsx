@@ -1,8 +1,11 @@
 import { useState } from "react";
 import qr from "../../assets/qr.png"
+import { useOutletContext } from "react-router-dom";
 
 const Ticket = () => {
-    const [nombrePlace, setNombrePlace] = useState([2, 5, 7])
+    // const [nombrePlace, setNombrePlace] = useState([2, 5, 7])
+    const { placeChoisies, total, lesReserve} = useOutletContext()
+    console.log(lesReserve)
 
     return ( 
         <>
@@ -17,17 +20,17 @@ const Ticket = () => {
                             </div>
                             <div className='text-center d-flex flex-column justify-content-center text-start'>
                                 <p>Prix par places : <em>15000 fr</em></p>
-                                <p>Nombres de places Choisis : <em>3</em></p>
-                                <p>Total : <em>45000 fr</em></p>
+                                <p>Nombres de places Choisis : <em>{placeChoisies.length}</em></p>
+                                <p>Total : <em>{total} fr</em></p>
                             </div>
                         </div>
                     </div>
-                    {nombrePlace.map((place, index) => (
+                    {placeChoisies.map((place, index) => (
                         <div className="col-md-12 my-1" style={{ borderBottom: "1px solid" }} key={index}>
                             <div className="d-flex justify-content-between">
                                 <div className='text-start'>
-                                    <p>Abdoul Wakhab Diouf</p>
-                                    <p>77 805 78 81</p>
+                                    <p>{lesReserve[index].prenom} {lesReserve[index].nom}</p>
+                                    <p>{lesReserve[index].telephone}</p>
                                     <h6>Places N°: {place}</h6>
                                 </div>
                                 <div style={{ width: "70px", height: "70px" }}>
