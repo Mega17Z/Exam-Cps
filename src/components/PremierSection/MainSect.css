@@ -1,0 +1,28 @@
+main{
+    background-color: white;
+    position: relative;
+}
+
+.limage{
+    object-fit: cover;
+    opacity: 0.2;
+}
+
+.lemain{
+    height: 100vh;
+    position: relative;
+}
+
+.lemain h1{
+    max-width: 500px;
+}
+
+.lemain p{
+    max-width: 500px;
+    font-size: 15px;
+}
+
+.lemain img{
+    width: 100%;
+    max-width: 500px;
+}

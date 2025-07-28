@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.titre h1{
+    position: relative;
+}
+
+.titre h1::before{
+    position: absolute;
+    content: '';
+    width: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background-color: aqua;
+    bottom: -12px;
+}
+
+.titre h6{
+    opacity: 0.7;
+}
+
+.paragraphe-2{
+    font-size: 2rem;
+    font-weight: 500;
+    font-style: italic;
+}
