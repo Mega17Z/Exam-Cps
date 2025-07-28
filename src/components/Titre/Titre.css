@@ -4,18 +4,18 @@
     box-sizing: border-box;
 }
 
-.titre h1{
+.titre h3{
     position: relative;
 }
 
-.titre h1::before{
+.titre h3::before{
     position: absolute;
     content: '';
     width: 70px;
     left: 50%;
     transform: translateX(-50%);
     height: 2px;
-    background-color: aqua;
+    background-color: #00ffff;
     bottom: -12px;
 }
 

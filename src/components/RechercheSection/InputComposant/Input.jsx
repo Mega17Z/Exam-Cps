@@ -1,10 +1,10 @@
 import Form from 'react-bootstrap/Form';
 
-function InputGoup({ville, nom}) {
+function InputGoup({ville, nom, onChange}) {
   return (
     <>
         <h5>{nom}</h5>
-        <Form.Select aria-label="Default select example">
+        <Form.Select aria-label="Default select example" onChange={(e) => onChange(e.target.value)}>
         {ville.map((vil, index) => (
             <option value={vil} key={index}>{vil}</option>
         ))}

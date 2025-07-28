@@ -1,12 +1,12 @@
 import './Titre.css'
 
-const Titre = () => {
+const Titre = ({titre, paragraphe}) => {
     return (
         <div className="container">
             <div className="row justify-content-center">
                 <div className="titre text-center">
-                    <h1>Recherche</h1>
-                    <p className="mt-4">Rechercher une course selon votre disponibilité</p>
+                    <h3>{titre}</h3>
+                    <p className="mt-4">{paragraphe}</p>
                 </div>
             </div>
         </div>
