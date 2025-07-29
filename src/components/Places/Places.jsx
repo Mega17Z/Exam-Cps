@@ -37,10 +37,6 @@ const ReserverPlaces = () => {
         navigate(`/utilisateur/${id}/validation`)
     }
 
-    const Retour = () => {
-        navigate('/')
-    }
-
     return ( 
         <div className='container p-1 pt-5 d-flex align-items-center' style={{ minHeight: "90vh" }}>
             <div className="p-3 mt-4" style={{ width: "90%", margin: "auto", boxShadow: "0px 2px 5px #0000002f", borderRadius: "5px" }}>
@@ -86,7 +82,7 @@ const ReserverPlaces = () => {
             </div>
 
             <div className="d-flex justify-content-between">
-                <p style={{ cursor: "pointer", color: "#a7a8a7c3" }} onClick={Retour} className="hove">Precedent</p>
+                <p style={{ cursor: "pointer", color: "#a7a8a7c3" }} className="hove">Precedent</p>
                 <p style={{ cursor: "pointer", color: "#a7a8a7c3" }} onClick={Valid} className="hove">Suivant</p>
             </div>
             </div>

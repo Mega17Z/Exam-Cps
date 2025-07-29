@@ -22,18 +22,24 @@ const Validation = () => {
     }
 
     const Payer = () => {
+        for(let i = 0;i < personne.length; i++){
+            if(personne[i].prenom === "" || personne[i].nom === "" || personne[i].telephone === "") return
+        }
+
         console.log(personne)
         setLesReserve(personne)
         navigate(`/utilisateur/${id}/paiement`)
     }
 
     return ( 
-        <div className='container p-1 d-flex align-items-center' style={{ minHeight: "90vh" }}>
+        <div className='container p-1 pt-5 d-flex align-items-center' style={{ minHeight: "90vh" }}>
         {/* <div className="container p-3 border"> */}
-            <div className="p-3" style={{ width: "90%", margin: "auto", boxShadow: "0px 2px 5px #0000002f", borderRadius: "5px" }}>
+            <div className="p-3 mt-4" style={{ width: "90%", margin: "0 auto", boxShadow: "0px 2px 5px #0000002f", borderRadius: "5px" }}>
             <h5><u>Paiement</u></h5>
+            <div className="row">
             {placeChoisies.map((place, index) => (
-                <div className="my-4 pb-3" key={index} style={{ borderBottom: "1px solid #a29f9fed" }}>
+                <div className="col-md-6">
+                <div className="my-4 p-3" key={index} style={{ border: "1px solid #a29f9fed", borderRadius: "3px" }}>
                     <h6 className="mb-4">Place N°: <b>{place}</b></h6>
                     <div className="row">
                         <div className="col-md-6">
@@ -50,7 +56,9 @@ const Validation = () => {
                         </div>
                     </div>
                 </div>
+                </div>
             ))}
+            </div>
 
 
             <div className="d-flex justify-content-between">

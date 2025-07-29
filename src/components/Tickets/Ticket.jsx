@@ -38,12 +38,12 @@ const Ticket = () => {
                         </div>
                     </div>
                     {placeChoisies.map((place, index) => (
-                        <div className="col-md-12 my-1" style={{ borderBottom: "1px solid #adadad" }} key={index}>
+                        <div className="col-md-12 my-1 py-3" style={{ borderBottom: "1px solid #c3c3c3", boxShadow: "0 2px 5px #0000001a", backgroundColor: "#f4f4f4" }} key={index}>
                             <div className="d-flex justify-content-between">
                                 <div className='text-start'>
                                     <p className="m-0" style={{ fontStyle: "italic", fontWeight: "500" }}>- {lesReserve[index].prenom} {lesReserve[index].nom}</p>
-                                    <p className="my-1 ms-3">* {lesReserve[index].telephone}</p>
-                                    <p className="m-0 ms-3">* Places N°: <b>{place}</b></p>
+                                    <p className="my-1 ms-3">* Tel: {lesReserve[index].telephone}</p>
+                                    <p className="m-0 ms-3">* Place N°: <b>{place}</b></p>
                                 </div>
                                 <div style={{ width: "70px", height: "70px" }}>
                                     <img src={qr} alt="" className="img-fluid" />
@@ -51,7 +51,7 @@ const Ticket = () => {
                             </div>
                         </div>
                     ))}
-                    <div className="d-flex justify-content-center flex-column text-center">
+                    <div className="d-flex justify-content-center mt-3 flex-column text-center">
                         <p className="m-0">TransGo vous remerci de votre confiance</p>
                         <p className="m-0">Bon Voyage</p>
                     </div>
