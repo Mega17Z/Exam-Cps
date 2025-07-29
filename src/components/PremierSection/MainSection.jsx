@@ -14,8 +14,8 @@ const MainSection = () => {
                         <img src={image} alt="" className="img-fluid" />
                     </div>
                     <div className="col-md-6 text-center">
-                        <h1>Titre de mon paragraphe</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, ratione quod! Facere similique quibusdam aliquam at id voluptatum laboriosam perferendis, quae porro fugiat consequatur consequuntur repudiandae ab autem, est dicta?</p>
+                        <h3>- <em>TranGo Senegal</em></h3>
+                        <p style={{ fontSize: "18px" }} className="mt-1 mt-md-5">TransGo Sénégal vous connecte aux quatre coins du pays en toute simplicité. Réservez vos places en ligne, choisissez votre siège, payez en toute sécurité… et voyagez l’esprit tranquille.</p>
                     </div>
                 </div>
             </div>

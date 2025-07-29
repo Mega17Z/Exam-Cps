@@ -4,18 +4,23 @@
     box-sizing: border-box;
 }
 
-.titre h3{
+.titre h4{
     position: relative;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-style: italic;
 }
 
-.titre h3::before{
+.titre h4::before{
     position: absolute;
     content: '';
     width: 70px;
     left: 50%;
     transform: translateX(-50%);
     height: 2px;
-    background-color: #00ffff;
+    background-color: #000000a8;
     bottom: -12px;
 }
 

@@ -5,7 +5,7 @@ main{
 
 .limage{
     object-fit: cover;
-    opacity: 0.2;
+    opacity: 0.1;
 }
 
 .lemain{
@@ -24,5 +24,5 @@ main{
 
 .lemain img{
     width: 100%;
-    max-width: 500px;
+    max-width: 800px;
 }
