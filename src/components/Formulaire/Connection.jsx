@@ -90,62 +90,70 @@
 // export default Connexion;
 
 
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import { auth } from '../../Firebase';
+// import Inscription from './Inscription';
 
 function Connexion() {
   const [email, setEmail] = useState('');
-  const [mdp, setMdp] = useState('');
-  const [estInscription, setEstInscription] = useState(false);
+  const [motdepasse, setMotdepasse] = useState('');
   const navigate = useNavigate();
 
-  const gererFormulaire = async (e) => {
+  const SeConnecter = (e) => {
     e.preventDefault();
 
-    try {
-      let utilisateurFirebase;
-      if (estInscription) {
-        utilisateurFirebase = await createUserWithEmailAndPassword(auth, email, mdp);
-      } else {
-        utilisateurFirebase = await signInWithEmailAndPassword(auth, email, mdp);
-      }
+    const userCredential = signInWithEmailAndPassword(auth, email, motdepasse)
+    console.log(userCredential.user)
+    navigate('/')
+    // try {
+    //   let utilisateurFirebase;
+    //   if (estInscription) {
+    //     utilisateurFirebase = await createUserWithEmailAndPassword(auth, email, motdepasse);
+    //   } else {
+    //     utilisateurFirebase = await signInWithEmailAndPassword(auth, email, motdepasse);
+    //   }
 
-      // Stocker l'utilisateur localement
-      const user = {
-        email: utilisateurFirebase.user.email,
-        uid: utilisateurFirebase.user.uid
-      };
-      localStorage.setItem('utilisateur', JSON.stringify(user));
-      navigate('/');
-    } catch (erreur) {
-      alert(erreur.message);
-    }
+    //   const user = {
+    //     email: utilisateurFirebase.user.email,
+    //     uid: utilisateurFirebase.user.uid
+    //   };
+    //   localStorage.setItem('utilisateur', JSON.stringify(user));
+    //   navigate('/');
+    // } catch (erreur) {
+    //   alert(erreur.message);
+    // }
   };
 
   return (
-    <div className="container mt-5">
-      <h3>{estInscription ? "Inscription" : "Connexion"}</h3>
-      <form onSubmit={gererFormulaire}>
+    <div className="container mt-5 d-flex justify-content-center align-items-center" style={{ minHeight: "80vh" }}>
+     <div className='p-4' style={{ width: "100%", maxWidth: "500px", borderRadius: "10px", boxShadow: "0 0 10px #00000047" }}>
+      <h4 className='text-center'>Connexion</h4>
+      <form onSubmit={SeConnecter} style={{ width: "100%" }}>
         <div className="mb-3">
-          <label>Email</label>
+          <label className="mb-2">Email</label>
           <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="form-control" required />
         </div>
         <div className="mb-3">
-          <label>Mot de passe</label>
-          <input type="password" value={mdp} onChange={e => setMdp(e.target.value)} className="form-control" required />
+          <label className="mb-2">Mot de passe</label>
+          <input type="password" value={motdepasse} onChange={e => setMotdepasse(e.target.value)} className="form-control" required />
         </div>
-        <button className="btn btn-primary" type="submit">
-          {estInscription ? "S'inscrire" : "Se connecter"}
-        </button>
-        <p className="mt-2">
-          {estInscription ? "Déjà inscrit ?" : "Pas encore inscrit ?"}{" "}
-          <span style={{ color: "blue", cursor: "pointer" }} onClick={() => setEstInscription(!estInscription)}>
-            {estInscription ? "Se connecter" : "Créer un compte"}
-          </span>
-        </p>
+        <div className="d-flex mt-4 flex-column justify-content-center align-items-center gap-3">
+            <button className="btn" type="submit" style={{ backgroundColor: "#000", color: "whitesmoke", borderRadius: "20px", maxWidth: "150px", width: "100%" }}>
+            Se connecter
+            </button>
+            <p className="mt-3">
+            Si vous n'avez pas de compte inscrivez-vous ?
+            <span style={{ color: "blue", cursor: "pointer" }} className='ms-2' onClick={() => {
+                navigate('/inscription')
+            }}>
+                S'inscrire
+            </span>
+            </p>
+        </div>
       </form>
+      </div>
     </div>
   );
 }

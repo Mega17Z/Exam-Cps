@@ -19,6 +19,7 @@ function NavScrollExample() {
 
   const Deconnexion = () => {
     signOut(auth)
+    setAffichage(false)
     useNavigate('/')
   }
 
@@ -43,7 +44,7 @@ function NavScrollExample() {
               </div>
               <div className="d-flex align-items-center flex-column" style={{ cursor: "pointer" }} onClick={change}>
                 <FaUserCircle style={{ fontSize: "24px" }} />
-                <span className="ms-2" style={{ fontSize: "10px" }}>{utilisateur.email}</span>
+                <span style={{ fontSize: "10px" }}>{utilisateur.displayName}</span>
               </div>
             </div>
           )}
