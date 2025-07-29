@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import Titre from "../Titre/Titre";
+import { useState } from "react";
 
 
-const Affichage = ({tableau}) => {
+const Affichage = ({tableau, utilisateur, setUtilisateur}) => {
     const navigate = useNavigate()
+    const [modal, setModal] = useState(false)
 
     const CourseChoisi = (id) => {
         navigate(`/utilisateur/${id}`)

@@ -9,6 +9,7 @@ import Affichage from "../components/ResultatAffichage/Resultats";
 
 const Accueil = () => {
     const [resultats, setResultats] = useState([])
+    const [utilisateur, setUtilisateur] = useState(false)
 
     const RechercheCourse = (course) => {
 
@@ -30,7 +31,7 @@ const Accueil = () => {
             <NavScrollExample />
             <MainSection />
             <Recherche recherches={RechercheCourse} />
-            <Affichage tableau={resultats} />
+            <Affichage tableau={resultats} utilisateur={utilisateur} setUtilisateur={setUtilisateur} />
             <Footer />
         </>
      );

@@ -12,6 +12,7 @@ import ReserverPlaces from './components/Places/Places'
 import Validation from './components/Validation/Validation'
 import Ticket from './components/Tickets/Ticket'
 import Paiement from './components/Paiement/Paiement'
+import Connexion from './components/Formulaire/Connection'
 // import ReserverPlaces from './components/Places/Places'
 // import Paiement from './components/Paiement/Paiement'
 // import Ticket from './components/Tickets/Ticket'
@@ -29,6 +30,8 @@ function App() {
           <Route path='paiement' element={<Paiement />} />
           <Route path='ticket' element={<Ticket />} />
         </Route>
+
+        <Route path='/connexion' element={<Connexion />} />
       </Routes>
       {/* // <Accueil /> */}
       {/* <Utilisateur /> */}
