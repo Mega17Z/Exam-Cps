@@ -1,22 +1,27 @@
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../../Firebase"
+// import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+// import { auth } from "../../Firebase"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+import { inscriptUtilisateur } from "../Context/AuthFirestoreRole";
 
 const Inscription = () => {
     const [nom, setNom] = useState('');
     const [email, setEmail] = useState('');
     const [motdepasse, setMotdepasse] = useState('');
+    // const [role, setRole] = useState('user');
     const navigate = useNavigate();
 
     const Sinscription = async (e) => {
     e.preventDefault();
     
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, motdepasse);
-      await updateProfile(userCredential.user, { displayName: nom });
+    //   const userCredential = await createUserWithEmailAndPassword(auth, email, motdepasse);
+    //   await updateProfile(userCredential.user, { displayName: nom });
 
-      console.log(userCredential.user);
+    //   console.log(userCredential.user);
+
+    inscriptUtilisateur(email, motdepasse, nom)
+
       navigate('/')
     } catch (erreur) {
         console.error(erreur.message)

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import './Places.css'
 import { useNavigate, useOutletContext, useParams } from "react-router-dom";
+// import CarSimulator from "../CarInteractives/Car";
 
 // const places = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const tableau = [
@@ -80,7 +81,7 @@ const ReserverPlaces = () => {
                     <p><u>Total</u> : <em>{placeChoisi.length * reserve.prixPlace}</em> fr</p>
                 </div>
             </div>
-
+            {/* <CarSimulator /> */}
             <div className="d-flex justify-content-between">
                 <p style={{ cursor: "pointer", color: "#a7a8a7c3" }} className="hove">Precedent</p>
                 <p style={{ cursor: "pointer", color: "#a7a8a7c3" }} onClick={Valid} className="hove">Suivant</p>

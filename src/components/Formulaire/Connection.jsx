@@ -93,7 +93,9 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { auth } from '../../Firebase';
+import { auth, db } from '../../Firebase';
+import { doc, getDoc } from 'firebase/firestore'
+
 // import Inscription from './Inscription';
 
 function Connexion() {
@@ -101,30 +103,56 @@ function Connexion() {
   const [motdepasse, setMotdepasse] = useState('');
   const navigate = useNavigate();
 
-  const SeConnecter = (e) => {
+  const SeConnecter = async (e) => {
     e.preventDefault();
 
-    const userCredential = signInWithEmailAndPassword(auth, email, motdepasse)
-    console.log(userCredential.user)
-    navigate('/')
-    // try {
-    //   let utilisateurFirebase;
-    //   if (estInscription) {
-    //     utilisateurFirebase = await createUserWithEmailAndPassword(auth, email, motdepasse);
-    //   } else {
-    //     utilisateurFirebase = await signInWithEmailAndPassword(auth, email, motdepasse);
-    //   }
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, motdepasse);
+      const user = userCredential.user;
 
-    //   const user = {
-    //     email: utilisateurFirebase.user.email,
-    //     uid: utilisateurFirebase.user.uid
-    //   };
-    //   localStorage.setItem('utilisateur', JSON.stringify(user));
-    //   navigate('/');
-    // } catch (erreur) {
-    //   alert(erreur.message);
-    // }
+      const userRef = doc(db, "users", user.uid);
+      const userDoc = await getDoc(userRef);
+
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        if (userData.role === "admin") {
+          navigate('/admin');
+        } else {
+          navigate('/');
+        }
+      } else {
+        navigate('/');
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+
+  // const SeConnecter = (e) => {
+  //   e.preventDefault();
+
+  //   const userCredential = signInWithEmailAndPassword(auth, email, motdepasse)
+  //   console.log(userCredential.user)
+  //   navigate('/')
+  //   // try {
+  //   //   let utilisateurFirebase;
+  //   //   if (estInscription) {
+  //   //     utilisateurFirebase = await createUserWithEmailAndPassword(auth, email, motdepasse);
+  //   //   } else {
+  //   //     utilisateurFirebase = await signInWithEmailAndPassword(auth, email, motdepasse);
+  //   //   }
+
+  //   //   const user = {
+  //   //     email: utilisateurFirebase.user.email,
+  //   //     uid: utilisateurFirebase.user.uid
+  //   //   };
+  //   //   localStorage.setItem('utilisateur', JSON.stringify(user));
+  //   //   navigate('/');
+  //   // } catch (erreur) {
+  //   //   alert(erreur.message);
+  //   // }
+  // };
 
   return (
     <div className="container mt-5 d-flex justify-content-center align-items-center" style={{ minHeight: "80vh" }}>

@@ -14,6 +14,7 @@ import Ticket from './components/Tickets/Ticket'
 import Paiement from './components/Paiement/Paiement'
 import Connexion from './components/Formulaire/Connection'
 import Inscription from './components/Formulaire/Inscription'
+import Admin from './pages/admin/Admin'
 // import ReserverPlaces from './components/Places/Places'
 // import Paiement from './components/Paiement/Paiement'
 // import Ticket from './components/Tickets/Ticket'
@@ -31,6 +32,8 @@ function App() {
           <Route path='paiement' element={<Paiement />} />
           <Route path='ticket/:leId' element={<Ticket />} />
         </Route>
+
+        <Route path='/admin' element={<Admin />} />
 
         <Route path='/connexion' element={<Connexion />} />
         <Route path='/inscription' element={<Inscription />} />
