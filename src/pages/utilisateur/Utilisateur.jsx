@@ -9,10 +9,11 @@ const Utilisateur = () => {
     const [placeChoisies, setPlacesChoisies] = useState([])
     const [total, setTotal] = useState("")
     const [lesReserve, setLesReserve] = useState([])
+    const [leId, setLeId] = useState(null)
 
     return ( 
         <div>
-            <Outlet context={{ placeChoisies, setPlacesChoisies, total, setTotal, lesReserve, setLesReserve }} />
+            <Outlet context={{ placeChoisies, setPlacesChoisies, total, setTotal, lesReserve, setLesReserve, leId, setLeId }} />
         </div>
      );
 }

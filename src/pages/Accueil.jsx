@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer/Footer";
 import NavScrollExample from "../components/Navbar/Navbar";
 import MainSection from "../components/PremierSection/MainSection";
 import Recherche from "../components/RechercheSection/Recherche";
 import Affichage from "../components/ResultatAffichage/Resultats";
-
+import { auth } from "../Firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 
 const Accueil = () => {
     const [resultats, setResultats] = useState([])
-    const [utilisateur, setUtilisateur] = useState(false)
+    const [utilisateur, setUtilisateur] = useState(null)
+
+    useEffect(() => {
+        const deconnecter = onAuthStateChanged(auth, (user) => {
+            if (user) {
+            setUtilisateur(user);
+            } else {
+            setUtilisateur(null);
+            }
+        });
+
+        return () => deconnecter();
+        }, []);
 
     const RechercheCourse = (course) => {
 

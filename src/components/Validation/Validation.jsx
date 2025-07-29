@@ -1,6 +1,7 @@
 import { useState } from "react";
 import InputText from "../InputForm/InputForm";
 import { useNavigate, useOutletContext, useParams } from "react-router-dom";
+import './Validation.css'
 
 const Validation = () => {
     // const [nombrePlace, setNombrePlace] = useState([2, 5, 7])
@@ -27,11 +28,13 @@ const Validation = () => {
     }
 
     return ( 
-        <div className="container p-3 border">
+        <div className='container p-1 d-flex align-items-center' style={{ minHeight: "90vh" }}>
+        {/* <div className="container p-3 border"> */}
+            <div className="p-3" style={{ width: "90%", margin: "auto", boxShadow: "0px 2px 5px #0000002f", borderRadius: "5px" }}>
             <h5><u>Paiement</u></h5>
             {placeChoisies.map((place, index) => (
-                <div className="my-4 pb-3" key={index} style={{ borderBottom: "1px solid black" }}>
-                    <h6>Place N°: <b>{place}</b></h6>
+                <div className="my-4 pb-3" key={index} style={{ borderBottom: "1px solid #a29f9fed" }}>
+                    <h6 className="mb-4">Place N°: <b>{place}</b></h6>
                     <div className="row">
                         <div className="col-md-6">
                             <InputText nom="Prénom" type="text" placeholder="Votre prénom" value={personne[index].prenom} onChange={(e) => Saisi(index, "prenom", e.target.value)} />
@@ -40,7 +43,7 @@ const Validation = () => {
                             <InputText nom="Nom" type="text" placeholder="Votre nom" value={personne[index].nom} onChange={(e) => Saisi(index, "nom", e.target.value)} />
                         </div>
                         <div className="col-md-6">
-                            <InputText nom="Téléphone" type="Text" placeholder="Votre Numero" value={personne[index].telephone} onChange={(e) => Saisi(index, "telephone", e.target.value)} />
+                            <InputText nom="Téléphone" type="Text" placeholder="(+221) " value={personne[index].telephone} onChange={(e) => Saisi(index, "telephone", e.target.value)} />
                         </div>
                         <div className="col-md-6">
                             <InputText nom="Numero d'identité" type="text" placeholder="Votre d'identité National" value={personne[index].carte} onChange={(e) => Saisi(index, "carte", e.target.value)} />
@@ -49,9 +52,15 @@ const Validation = () => {
                 </div>
             ))}
 
+
             <div className="d-flex justify-content-between">
+                <p style={{ cursor: "pointer", color: "#a7a8a7c3" }} className="hove">Precedent</p>
+                <p style={{ cursor: "pointer", color: "#a7a8a7c3" }} onClick={Payer} className="hove">Suivant</p>
+            </div>
+            {/* <div className="d-flex justify-content-between">
                 <p><u>Precedent</u></p>
                 <p style={{ cursor: "pointer" }} onClick={Payer}><u>Suivant</u></p>
+            </div> */}
             </div>
         </div>
      );

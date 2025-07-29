@@ -2,11 +2,15 @@ import { useNavigate } from "react-router-dom";
 import Titre from "../Titre/Titre";
 import { useState } from "react";
 import StaticExample from "../Modal/Modal";
+import { useAuth } from "../Context/AuthentificationContext";
 
 
-const Affichage = ({tableau, utilisateur, setUtilisateur}) => {
+const Affichage = ({tableau}) => {
     const navigate = useNavigate()
     const [modal, setModal] = useState(false)
+    const { utilisateur } = useAuth()
+
+    console.log(utilisateur)
 
     const CourseChoisi = (id) => {
         if(!utilisateur){

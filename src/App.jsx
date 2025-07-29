@@ -29,7 +29,7 @@ function App() {
           <Route path='reservation' element={<ReserverPlaces />} />
           <Route path='validation' element={<Validation />} />
           <Route path='paiement' element={<Paiement />} />
-          <Route path='ticket' element={<Ticket />} />
+          <Route path='ticket/:leId' element={<Ticket />} />
         </Route>
 
         <Route path='/connexion' element={<Connexion />} />
