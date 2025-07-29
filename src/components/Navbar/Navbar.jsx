@@ -27,7 +27,9 @@ function NavScrollExample() {
     <Navbar expand="lg" style={{ backgroundColor: "whitesmoke", position: 'fixed', zIndex: '100', width: "100%", boxShadow: "0 0 10px #0000007c" }}>
       <Container fluid>
         <div className="d-flex justify-content-between align-items-center w-100 py-1">
-          <Navbar.Brand href="/" className='logo'>TransGo Senegal</Navbar.Brand>
+          <Navbar.Brand onClick={() => {
+            navigate('/')
+          }} className='logo' style={{ cursor: "pointer" }}>TransGo Senegal</Navbar.Brand>
 
           {!utilisateur ? (
             <Form className="d-flex">

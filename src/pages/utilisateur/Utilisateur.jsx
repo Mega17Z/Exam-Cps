@@ -3,6 +3,7 @@ import Paiement from "../../components/Validation/Validation";
 import ReserverPlaces from "../../components/Places/Places";
 import Ticket from "../../components/Tickets/Ticket";
 import { useState } from "react";
+import NavScrollExample from "../../components/Navbar/Navbar";
 
 
 const Utilisateur = () => {
@@ -13,6 +14,7 @@ const Utilisateur = () => {
 
     return ( 
         <div>
+            <NavScrollExample />
             <Outlet context={{ placeChoisies, setPlacesChoisies, total, setTotal, lesReserve, setLesReserve, leId, setLeId }} />
         </div>
      );

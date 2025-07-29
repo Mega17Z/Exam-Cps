@@ -20,9 +20,9 @@ const Paiement = () => {
 
     return ( 
         <>
-        <div className='container p-1 d-flex align-items-center' style={{ minHeight: "90vh" }}>
+        <div className='container p-1 pt-5 d-flex align-items-center' style={{ minHeight: "90vh" }}>
         {/* <div className='container'> */}
-            <div className="p-3" style={{ width: "90%", margin: "auto", boxShadow: "0px 2px 5px #0000002f", borderRadius: "5px" }}>
+            <div className="p-3 mt-4" style={{ width: "90%", margin: "auto", boxShadow: "0px 2px 5px #0000002f", borderRadius: "5px" }}>
             <h5 className=""><u>Mode de Paiement</u></h5>
             <div className="d-flex gap-5">
                 {lesModes.map((mode, index) => (

@@ -34,7 +34,7 @@ const Accueil = () => {
             {id: 5, depart: "Matam", arriver: "Dakar", heurDepart: "14h30", placeRestant: 25}
         ]
 
-        const resultat = tableau.filter(recherche => (recherche.depart === course.depart && recherche.arriver === course.arriver || recherche.depart === course.arriver && recherche.arriver === course.depart))
+        const resultat = tableau.filter(recherche => (recherche.depart.toLowerCase() === course.depart.toLowerCase() && recherche.arriver.toLowerCase() === course.arriver.toLowerCase() || recherche.depart.toLowerCase() === course.arriver.toLowerCase() && recherche.arriver.toLowerCase() === course.depart.toLowerCase()))
         setResultats(resultat)
     }
 

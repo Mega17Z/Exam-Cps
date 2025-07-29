@@ -14,13 +14,13 @@ const Ticket = () => {
     // const [nombrePlace, setNombrePlace] = useState([2, 5, 7])
     const { placeChoisies, total, lesReserve} = useOutletContext()
     console.log(lesReserve)
-    const { id } =useParams()
-    const course = tableau.find(item => item.id === parseInt(id));
+    const { leId } =useParams()
+    const course = tableau.find(item => item.id === parseInt(leId));
 
     return ( 
         <>
-        <div className='container p-1 d-flex align-items-center' style={{ minHeight: "90vh" }}>
-            <div className="p-3" style={{ width: "90%", margin: "auto", boxShadow: "0px 2px 5px #0000002f", borderRadius: "5px" }}>
+        <div className='container p-1 pt-5 d-flex align-items-center' style={{ minHeight: "90vh" }}>
+            <div className="p-3 mt-4" style={{ width: "90%", margin: "auto", boxShadow: "0px 2px 5px #0000002f", borderRadius: "5px" }}>
             {/* <div className="container p-4 border"> */}
                 <div className="row">
                     <div className="col-md-12 my-3" style={{ borderBottom: "1px solid" }}>
