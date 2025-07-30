@@ -4,7 +4,7 @@ function InputText({nom, type, placeholder, value, onChange}) {
   return (
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label style={{ fontWeight: "400" }} >{nom}</Form.Label>
-        <Form.Control type={type} placeholder={placeholder} value={value} onChange={onChange} />
+        <Form.Control name={nom} type={type} placeholder={placeholder} value={value} onChange={onChange} />
       </Form.Group>
   );
 }
