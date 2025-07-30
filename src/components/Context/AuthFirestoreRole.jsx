@@ -1,38 +1,3 @@
-// // import { auth, db } from "../firebase";
-// import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-// import { doc, setDoc } from "firebase/firestore";
-// import { auth, db } from "../../Firebase";
-
-// const AjouterUtilisateur = async (userId, role = "user") => {
-//   try {
-//     const userRef = doc(db, "users", userId);
-//     await setDoc(userRef, {
-//       role: role,
-//       createdAt: new Date(),
-//     });
-
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// const inscritUtilisateur = async (email, password, nom, role = "user") => {
-//   try {
-//     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
-//     await updateProfile(userCredential.user, { displayName: nom });
-
-//     await AjouterUtilisateur(userCredential.user.uid, role);
-
-//     console.log(userCredential.user);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// export { inscritUtilisateur };
-
-
 import { auth, db } from "../../Firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
